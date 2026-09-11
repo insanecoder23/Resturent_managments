@@ -9,13 +9,25 @@ const cookieParser = require("cookie-parser");
 const routee = require("./Routes/routers");
 
 const app = express();
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://resturent-managments-1izt-7eubpuycn-insanecoder23s-projects.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (
+      origin === "http://localhost:5173" ||
+      origin.endsWith(".vercel.app")
+    ) {
+      return callback(null, true);
+    }
+
+    callback(new Error("Not allowed by CORS"));
+  },
   credentials: true
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -23,7 +35,7 @@ app.use(
   fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmp/",
-  }),
+  })
 );
 
 app.use("/api/Resturent", routee);
@@ -42,6 +54,7 @@ const server = async () => {
     console.log("Server failed:", error);
   }
 };
+
 server();
 
 app.get("/", (req, res) => {
