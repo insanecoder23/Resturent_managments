@@ -73,7 +73,7 @@ function Admin() {
 
       // Your existing add-product API
       const response = await axios.post(
-        "http://localhost:4000/api/Resturent/add-product",
+        "https://resturent-managments.onrender.com/api/Resturent/add-product",
         data,
         {
           headers: {

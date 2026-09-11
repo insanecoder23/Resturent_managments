@@ -78,9 +78,7 @@ useEffect(() => {
   return (
     <div className="min-h-screen bg-sky-100">
 
-      {/* =====================================
-          NAVBAR
-      ===================================== */}
+     
 
       <nav className="fixed top-0 left-0 w-full z-50 px-3 sm:px-6 py-3 sm:py-4">
         <div

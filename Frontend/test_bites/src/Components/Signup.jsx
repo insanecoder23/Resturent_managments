@@ -63,7 +63,7 @@ function Signup() {
 
   try {
     const response = await axios.post(
-      "http://localhost:4000/api/Resturent/signup",
+      "https://resturent-managments.onrender.com/api/Resturent/signup",
       {
         Name,
         Email,
