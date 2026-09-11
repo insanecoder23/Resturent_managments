@@ -16,7 +16,7 @@ function ProductDetails() {
     const getProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/Resturent/product/${id}`,
+          `https://resturent-managments.onrender.com/api/Resturent/product/${id}`,
         );
 
         console.log(response.data);
