@@ -49,7 +49,7 @@ useEffect(() => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "https://resturent-managments.onrender.com/api/Resturent/products"
+       "https://resturent-managments.onrender.com/api/Resturent/products"
       );
 
       console.log("Products from database:", response.data.data);
