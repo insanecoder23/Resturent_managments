@@ -45,30 +45,27 @@ function Home() {
 
   navigate("/", { replace: true });
 };
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(
+        "https://resturent-managments.onrender.com/api/Resturent/products"
+      );
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:4000/api/Resturent/products"
-        );
+      console.log("Products from database:", response.data.data);
 
-        console.log("Products from database:", response.data.data);
+      setProducts(response.data.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        setProducts(response.data.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  fetchProducts();
+}, []);
 
-    fetchProducts();
-  }, []);
-
-  // ==============================
-  // SEARCH FILTER
-  // ==============================
+ 
   const filteredProducts = products.filter((product) => {
     const searchText = search.toLowerCase();
 
