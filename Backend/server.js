@@ -12,7 +12,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://resturent-managments-1izt-cfalfcvmk-insanecoder23s-projects.vercel.app"
+    "https://resturent-managments-1izt-7eubpuycn-insanecoder23s-projects.vercel.app"
   ],
   credentials: true
 }));
